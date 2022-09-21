@@ -1,4 +1,4 @@
-import { dataCards, showModal } from "./src/js/index.js";
+import { randomCard, showModal } from "./src/js/index.js";
 import "./src/js/settings.js";
 let winGame = false;
 
@@ -43,28 +43,6 @@ const cards = document.querySelector(".cards");
 }
 
 let arrayIndex = [];
-
-let randomCard =
-    dataCards[localStorage.getItem("settingConfig")] || dataCards["config_4"];
-
-randomCard = randomCard.sort(() => Math.random() - 0.5);
-
-if (localStorage.getItem("settingConfig") === "config_8") {
-    cards.style.gridTemplateColumns = "repeat(8, 1fr)";
-    cards.style.gridTemplateRows = "repeat(8, 1fr)";
-    cards.style.width = "400px";
-    cards.style.height = "400px";
-} else if (localStorage.getItem("settingConfig") === "config_6") {
-    cards.style.gridTemplateColumns = "repeat(6, 1fr)";
-    cards.style.gridTemplateRows = "repeat(6, 1fr)";
-    cards.style.width = "300px";
-    cards.style.height = "300px";
-} else {
-    cards.style.gridTemplateColumns = "repeat(4, 1fr)";
-    cards.style.gridTemplateRows = "repeat(4, 1fr)";
-    cards.style.width = "200px";
-    cards.style.height = "200px";
-}
 
 function printCards() {
     let html = "";

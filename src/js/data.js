@@ -587,6 +587,9 @@ const dataCards = {
     ],
 };
 
-// const randomCard = arrayCards.sort(() => Math.random() - 0.5);
+let randomCard =
+    dataCards[localStorage.getItem("settingConfig")] || dataCards["config_4"];
 
-export { dataCards };
+randomCard = randomCard.sort(() => Math.random() - 0.5);
+
+export { randomCard };
