@@ -16,6 +16,33 @@ i {
     color: #fff;
 }
 
+.time {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    width: 100;
+    height: 30px;
+    border: 2px solid var(--color-down);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.time_load {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background-color: var(--color-down);
+}
+
+.RegresiveSeconds {
+    position: absolute;
+    right: 50%;
+    top: 5px;
+    z-index: 1000;
+    font-weight: bold;
+}
+
 .container {
     min-height: calc(100vh - 50px);
     display: flex;

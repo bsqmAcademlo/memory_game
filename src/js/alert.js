@@ -1,11 +1,16 @@
-async function showModal() {
+async function showModal(title, loserTime) {
     try {
         const res = await Swal.fire({
-            title: "Super, ganaste, Quieres comenzar de nuevo?",
+            title: title,
             showDenyButton: true,
             confirmButtonText: "Claro",
-            denyButtonText: `No`,
+            denyButtonText: loserTime ? "toca" : `No`,
         });
+
+        if (loserTime) {
+            window.location.reload();
+            return;
+        }
 
         if (res.isConfirmed) {
             window.location.reload();
