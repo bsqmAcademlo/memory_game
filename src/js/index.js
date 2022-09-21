@@ -1,4 +1,4 @@
 import { showModal } from "./alert.js";
-import { randomCard } from "./data.js";
+import { dataCards } from "./data.js";
 
-export { randomCard, showModal };
+export { showModal, dataCards };
