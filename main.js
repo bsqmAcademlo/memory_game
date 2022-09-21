@@ -1,43 +1,46 @@
 import { randomCard, showModal } from "./src/js/index.js";
+import "./src/js/settings.js";
 let winGame = false;
 
 const cards = document.querySelector(".cards");
-const timeLoad = document.querySelector(".time_load");
-const RegresiveSeconds = document.querySelector(".RegresiveSeconds");
+{
+    const timeLoad = document.querySelector(".time_load");
+    const RegresiveSeconds = document.querySelector(".RegresiveSeconds");
 
-let percent = 0;
-let seconds = 60;
-const time = (1000 * seconds) / 100;
+    let percent = 0;
+    let seconds = Number(localStorage.getItem("settingSeconds")) || 60;
+    const time = (1000 * seconds) / 100;
 
-RegresiveSeconds.textContent = seconds;
+    RegresiveSeconds.textContent = seconds;
 
-const RegresiveInterval = setInterval(() => {
-    RegresiveSeconds.textContent = seconds - 1;
+    const RegresiveInterval = setInterval(() => {
+        RegresiveSeconds.textContent = seconds - 1;
 
-    seconds--;
+        seconds--;
 
-    if (winGame) {
-        clearInterval(RegresiveInterval);
-    }
+        if (winGame) {
+            clearInterval(RegresiveInterval);
+        }
 
-    if (seconds === 0) {
-        clearInterval(RegresiveInterval);
-    }
-}, 1000);
+        if (seconds === 0) {
+            clearInterval(RegresiveInterval);
+        }
+    }, 1000);
 
-const GameOverForTime = setInterval(() => {
-    percent++;
-    timeLoad.style.transform = `translateX(-${percent}%)`;
+    const GameOverForTime = setInterval(() => {
+        percent++;
+        timeLoad.style.transform = `translateX(-${percent}%)`;
 
-    if (winGame) {
-        clearInterval(GameOverForTime);
-    }
+        if (winGame) {
+            clearInterval(GameOverForTime);
+        }
 
-    if (percent === 100) {
-        clearInterval(GameOverForTime);
-        showModal("Se te acabo el tiempo, Vuelve a iniciar", true);
-    }
-}, time);
+        if (percent === 100) {
+            clearInterval(GameOverForTime);
+            showModal("Se te acabo el tiempo, Vuelve a iniciar", true);
+        }
+    }, time);
+}
 
 let arrayIndex = [];
 
